@@ -11,7 +11,7 @@ from do import do_call, do_schedule
 call = Scenario(
     intent='call',
     api=do_call,
-    senario={
+    scenario={
         'Target': [],
     }
 )
@@ -19,7 +19,7 @@ call = Scenario(
 schedule = Scenario(
     intent='schedule',
     api=do_schedule,
-    senario={
+    scenario={
         'Date':[],
         'Subject':[],
         'Time':[],
