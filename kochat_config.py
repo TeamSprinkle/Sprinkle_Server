@@ -32,7 +32,7 @@ DATA = {
     'intent_data_dir': BASE['root_dir'] + "data{_}intent_data.csv".format(_=_),  # 생성된 인텐트 데이터 파일 경로
     'entity_data_dir': BASE['root_dir'] + "data{_}entity_data.csv".format(_=_),  # 생성된 엔티티 데이터 파일 경로
 
-    'NER_categories': ['DATE', 'LOCATION', 'RESTAURANT', 'PLACE'],  # 사용자 정의 태그
+    'NER_categories': [ 'Target', 'Date', 'Subject', 'Time', 'Action'],  # 사용자 정의 태그
     'NER_tagging': ['B', 'E', 'I', 'S'],  # NER의 BEGIN, END, INSIDE, SINGLE 태그
     'NER_outside': 'O',  # NER의 O태그 (Outside를 의미)
 }
@@ -104,7 +104,7 @@ ENTITY = {
     'model_lr': 1e-4,  # 엔티티 학습시 사용되는 모델 러닝레이트
     'loss_lr': 1e-4,  # 엔티티 학습시 사용되는 로스 러닝레이트 (아직 사용되지 않음)
     'weight_decay': 1e-4,  # 엔티티 학습시 사용되는 가중치 감쇠 정도
-    'epochs': 1000,  # 엔티티 학습 횟수
+    'epochs': 2000,  # 엔티티 학습 횟수
     'd_model': 512,  # 엔티티 모델의 차원
     'layers': 1,  # 엔티티 모델의 히든 레이어(층)의 수
     'masking': True,  # loss 계산시 패딩 마스크 여부
