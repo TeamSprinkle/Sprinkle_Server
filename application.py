@@ -14,7 +14,7 @@ from kochat.model import intent, embed, entity
 from kochat.proc import DistanceClassifier, GensimEmbedder, EntityRecognizer, SoftmaxClassifier
 
 from scenrios import call, schedule
-
+from Controller.UserController import UserController
 
 dataset = Dataset(ood=True)
 emb = GensimEmbedder(model=embed.FastText())
@@ -31,9 +31,9 @@ rcn = EntityRecognizer(
 
 kochat = KochatApi(
     dataset=dataset,
-    embed_processor=(emb, True),
-    intent_classifier=(clf, True),
-    entity_recognizer=(rcn, True),
+    embed_processor=(emb, False),
+    intent_classifier=(clf, False),
+    entity_recognizer=(rcn, False),
     scenarios=[
         call, schedule
     ]
@@ -42,7 +42,7 @@ kochat = KochatApi(
 
 @kochat.app.route('/')
 def index():
-    return "dd"
+    return UserController.creteUser()
 
 
 if __name__ == '__main__':
