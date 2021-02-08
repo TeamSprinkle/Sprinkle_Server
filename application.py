@@ -39,10 +39,21 @@ kochat = KochatApi(
     ]
 )
 
+userController = UserController()
 
 @kochat.app.route('/')
 def index():
-    return UserController.creteUser()
+    userController.searchUserById("1234567890")
+    return "adsf"
+
+@kochat.app.route('/init')
+def init():
+    print("요청은 오는거지?")
+    return userController.createUser()
+
+@kochat.app.route('/getUsers')
+def getUsers():
+    return userController.searchUser()
 
 
 if __name__ == '__main__':
