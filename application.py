@@ -13,8 +13,8 @@ from kochat.loss import CRFLoss, CosFace, CenterLoss, COCOLoss, CrossEntropyLoss
 from kochat.model import intent, embed, entity
 from kochat.proc import DistanceClassifier, GensimEmbedder, EntityRecognizer, SoftmaxClassifier
 
-from scenrios import call, schedule
-from Controller.UserController import UserController
+from sprinkle.scenrios import call, schedule
+from sprinkle.controllers.UserController import UserController
 
 dataset = Dataset(ood=True)
 emb = GensimEmbedder(model=embed.FastText())
