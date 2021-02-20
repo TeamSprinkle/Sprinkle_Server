@@ -7,6 +7,7 @@
 
 from flask import render_template
 
+
 from kochat.app import KochatApi
 from kochat.data import Dataset
 from kochat.loss import CRFLoss, CosFace, CenterLoss, COCOLoss, CrossEntropyLoss
