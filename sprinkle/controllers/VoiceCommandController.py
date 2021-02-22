@@ -13,6 +13,8 @@ from kochat.loss import CRFLoss, CosFace, CenterLoss, COCOLoss, CrossEntropyLoss
 from kochat.model import intent, embed, entity
 from kochat.proc import DistanceClassifier, GensimEmbedder, EntityRecognizer, SoftmaxClassifier
 
+from konlpy.tag import Okt as Mecab
+
 from sprinkle.scenrios import call, schedule
 
 dataset = Dataset(ood=True)
@@ -44,7 +46,18 @@ class VoiceCommandController():
         print("")
 
     def test(self, text):
-    
+        
+        print("input text -----")
+        print(text)
+
+        mecab = Mecab()
+        listTmp = mecab.pos( text , stem=True, norm=False )
+        listText = list()
+        for tupTmp in listTmp:
+            strTxt = tupTmp[0]
+            listText.append( strTxt )
+        text = " ".join( listText )
+
         prep = kochat.dataset.load_predict(text, kochat.embed_processor)
         intent = kochat.intent_classifier.predict(prep, calibrate=False)
         entity = kochat.entity_recognizer.predict(prep)
