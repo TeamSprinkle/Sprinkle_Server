@@ -5,7 +5,7 @@
   Created by LeeKW on 2021/02/01.
 """
 
-from flask import render_template
+from flask import request
 
 from kochat.app import KochatApi
 from kochat.data import Dataset
@@ -41,15 +41,15 @@ kochat = KochatApi(
 
 userController = UserController()
 
-# @kochat.app.route('/')
-# def index():
-#     userController.searchUserById("1234567890")
-#     return "adsf"
+@kochat.app.route('/')
+def index():
+    # userController.searchUserById("1234567890")
+    return "adsf"
 
-# @kochat.app.route('/init')
-# def init():
-#     print("요청은 오는거지?")
-#     return userController.createUser()
+@kochat.app.route('/users/init', methods=['POST'])
+def init():
+    userInfo = request.json
+    return userController.createUser(userInfo)
 
 # @kochat.app.route('/getUsers')
 # def getUsers():

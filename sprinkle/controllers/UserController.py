@@ -6,15 +6,12 @@
 """
 
 from sprinkle.models.User import User
-from flask import Blueprint
 
 class UserController():
-    users_bp = Blueprint("users_bp", __name__, url_prefix="/users")
-
     def __init__(self):
         self.user = User()
 
-    def createUser(self):
+    def createUser(self, userInfo):
         """
         새로운 사용자 정보를 Database에 저장하는 메소드
         기존에 동일한 정보가 있는지 확인하고 없다면 새로 저장한다.
@@ -24,14 +21,14 @@ class UserController():
         :param phonebooks: 사용자 전화번호부 이름 목록
         :return: 성공 여부
         """
-        deviceId = "11111111"
-        phoneNum = "010-1111-2222"
-        # 핸드폰 번호가 NULL일수도 있다~
-        phonebooks = ["곽성순", "이석주", "이현지"]   
-        # 전화번호부가 NULL일수도 있따~
+        deviceId = userInfo['deviceId']
+        phoneNum = userInfo['phoneNum']
+        phonebooks = userInfo['phonebooks']   
 
-        self.user.createUser(deviceId, phoneNum, phonebooks)
-        
+        print(deviceId)
+        print(phoneNum)
+        print(phonebooks)
+
         res = self.user.searchUserById(deviceId)
         if(res != None):
             # deviceId로 유저 정보가 존재하는 경우
@@ -68,6 +65,8 @@ class UserController():
        #phonebooks의 update는 성공했지만 수정된 값이 없다면 그냥 진행
        #수정된 값이 있다면 모델을 다시 train
 
+    def deleteUser(self):
+        print("dd")
 
 
 
