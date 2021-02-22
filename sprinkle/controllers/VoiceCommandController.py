@@ -58,14 +58,20 @@ class VoiceCommandController():
             listText.append( strTxt )
         text = " ".join( listText )
 
+        print("okt text-----")
+        print(text)
+
         prep = kochat.dataset.load_predict(text, kochat.embed_processor)
         intent = kochat.intent_classifier.predict(prep, calibrate=False)
         entity = kochat.entity_recognizer.predict(prep)
         text = kochat.dataset.prep.tokenize(text, train=False)
         # KochatApi.dialogue_cache[uid] = KochatApi.scenario_manager.apply_scenario(intent, entity, text)
         
+        print("intent ----------")
         print(intent)
+        print("entity----------")
         print(entity)
+        print("text-------------")
         print(text)
 
         return "aa"
