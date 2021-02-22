@@ -6,14 +6,17 @@
 """
 
 from sprinkle.models.User import User
+from flask import Blueprint
 
 class UserController():
+    users_bp = Blueprint("users_bp", __name__, url_prefix="/users")
+
     def __init__(self):
         self.user = User()
 
     def createUser(self):
         """
-        새로운 사용자 정보를 Database에 저장하는 매소드
+        새로운 사용자 정보를 Database에 저장하는 메소드
         기존에 동일한 정보가 있는지 확인하고 없다면 새로 저장한다.
 
         :param deviceId: 기기 고유의 ID

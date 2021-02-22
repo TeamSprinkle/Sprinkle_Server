@@ -7,4 +7,4 @@
 
 from sprinkle.models.DAO import DAO
 
-# DAO = DAO()
+# DAO = DAO()  # 싱글턴 적용하고

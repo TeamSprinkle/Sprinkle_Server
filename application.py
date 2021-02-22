@@ -7,7 +7,6 @@
 
 from flask import render_template
 
-
 from kochat.app import KochatApi
 from kochat.data import Dataset
 from kochat.loss import CRFLoss, CosFace, CenterLoss, COCOLoss, CrossEntropyLoss
@@ -42,19 +41,19 @@ kochat = KochatApi(
 
 userController = UserController()
 
-@kochat.app.route('/')
-def index():
-    userController.searchUserById("1234567890")
-    return "adsf"
+# @kochat.app.route('/')
+# def index():
+#     userController.searchUserById("1234567890")
+#     return "adsf"
 
-@kochat.app.route('/init')
-def init():
-    print("요청은 오는거지?")
-    return userController.createUser()
+# @kochat.app.route('/init')
+# def init():
+#     print("요청은 오는거지?")
+#     return userController.createUser()
 
-@kochat.app.route('/getUsers')
-def getUsers():
-    return userController.searchUser()
+# @kochat.app.route('/getUsers')
+# def getUsers():
+#     return userController.searchUser()
 
 
 if __name__ == '__main__':
