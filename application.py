@@ -56,8 +56,8 @@ def init():
 
 @kochat.app.route('/command/test', methods=['GET'])
 def test():
-    return voiceCommandControler.test("천우에게 전화 걸어줘")
-
+    command = request.args[command]
+    return voiceCommandControler.test(command)
 
 # @kochat.app.route('/getUsers')
 # def getUsers():

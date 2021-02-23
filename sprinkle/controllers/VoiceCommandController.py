@@ -65,7 +65,6 @@ class VoiceCommandController():
         intent = kochat.intent_classifier.predict(prep, calibrate=False)
         entity = kochat.entity_recognizer.predict(prep)
         text = kochat.dataset.prep.tokenize(text, train=False)
-        # KochatApi.dialogue_cache[uid] = KochatApi.scenario_manager.apply_scenario(intent, entity, text)
         
         print("intent ----------")
         print(intent)
@@ -74,5 +73,8 @@ class VoiceCommandController():
         print("text-------------")
         print(text)
 
-        return "aa"
+        return kochat.scenario_manager.apply_scenario(intent, entity, text)
+        
+        
+
     
