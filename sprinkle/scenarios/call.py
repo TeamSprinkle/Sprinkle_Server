@@ -6,6 +6,7 @@
 """
 
 def do_call( target ):
+    result = dict()
     result['target'] = target
 
     return result

@@ -22,9 +22,9 @@ schedule = Scenario(
     intent='schedule',
     api=do_schedule,
     scenario={
-        'Date':[],
-        'Subject':[],
-        'Time':[],
-        'Action':[],
+        'Date':["오늘"],
+        'Subject':["일정"],
+        'Time':["지금"],
+        'Action':["잡다"],
     }
 )
