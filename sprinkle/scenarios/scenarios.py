@@ -6,7 +6,8 @@
 """
 
 from kochat.app import Scenario
-from sprinkle.do import do_call, do_schedule
+from sprinkle.scenarios.call import do_call
+from sprinkle.scenarios.schedule import do_schedule
 
 
 call = Scenario(
