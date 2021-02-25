@@ -15,7 +15,7 @@ from kochat.proc import DistanceClassifier, GensimEmbedder, EntityRecognizer, So
 
 from konlpy.tag import Okt as Mecab
 
-from sprinkle.scenrios import call, schedule
+from sprinkle.scenarios.scenarios import call, schedule
 
 dataset = Dataset(ood=True)
 emb = GensimEmbedder(model=embed.FastText())
