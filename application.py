@@ -13,7 +13,7 @@ from kochat.loss import CRFLoss, CosFace, CenterLoss, COCOLoss, CrossEntropyLoss
 from kochat.model import intent, embed, entity
 from kochat.proc import DistanceClassifier, GensimEmbedder, EntityRecognizer, SoftmaxClassifier
 
-from sprinkle.scenrios import call, schedule
+from sprinkle.scenarios.scenraios import call, schedule
 from sprinkle.controllers.UserController import UserController
 from sprinkle.controllers.VoiceCommandController import VoiceCommandController
 
