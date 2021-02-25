@@ -65,4 +65,4 @@ def test():
 
 
 if __name__ == '__main__':
-    kochat.app.run(port=8080, host='0.0.0.0')
+    kochat.app.run(port=8080, host='192.168.1.63')
