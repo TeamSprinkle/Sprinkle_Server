@@ -53,10 +53,10 @@ kochat = KochatApi(
 def init():
     print("request")
     print(request)
-    print("request.json")
-    print(request.args)
-    print("request data")
-    print(request.data)
+    print("request.files")
+    print(request.files)
+    print("request form")
+    print(request.form)
     userInfo = request.get_json()
     return userController.createUser(userInfo)
 
