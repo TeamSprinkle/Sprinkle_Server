@@ -54,7 +54,9 @@ def init():
     print("request")
     print(request)
     print("request.json")
-    print(request.get_json())
+    print(request.args)
+    print("request data")
+    print(request.data)
     userInfo = request.get_json()
     return userController.createUser(userInfo)
 
