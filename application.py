@@ -21,10 +21,33 @@ from sprinkle.controllers.VoiceCommandController import VoiceCommandController
 userController = UserController()
 voiceCommandControler = VoiceCommandController()
 
-@kochat.app.route('/')
-def index():
-    # userController.searchUserById("1234567890")
-    return "adsf"
+dataset = Dataset(ood=True)
+emb = GensimEmbedder(model=embed.FastText())
+
+clf = DistanceClassifier(
+    model=intent.CNN(dataset.intent_dict),
+    loss=CenterLoss(dataset.intent_dict),
+)
+
+rcn = EntityRecognizer(
+    model=entity.LSTM(dataset.entity_dict),
+    loss=CRFLoss(dataset.entity_dict)
+)
+
+kochat = KochatApi(
+    dataset=dataset,
+    embed_processor=(emb, False),
+    intent_classifier=(clf, False),
+    entity_recognizer=(rcn, False),
+    scenarios=[
+        call, schedule
+    ]
+)
+
+# @kochat.app.route('/')
+# def index():
+#     # userController.searchUserById("1234567890")
+#     return "adsf"
 
 @kochat.app.route('/users/init', methods=['POST'])
 def init():
