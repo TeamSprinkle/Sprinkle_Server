@@ -5,7 +5,7 @@
   Created by LeeKW on 2021/02/01.
 """
 
-from flask import request
+from flask import request, jsonify
 
 from kochat.app import KochatApi
 from kochat.data import Dataset
