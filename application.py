@@ -5,7 +5,7 @@
   Created by LeeKW on 2021/02/01.
 """
 
-from flask import request, jsonify
+from flask import request
 
 from kochat.app import KochatApi
 from kochat.data import Dataset
@@ -51,7 +51,7 @@ kochat = KochatApi(
 
 @kochat.app.route('/users/init', methods=['POST'])
 def init():
-    userInfo = request.get_json()
+    userInfo = request.get_json(force=True)
     print("userInfo")
     print(userInfo)
     print(request.is_json)
