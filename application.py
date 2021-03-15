@@ -51,6 +51,10 @@ kochat = KochatApi(
 
 @kochat.app.route('/users/init', methods=['POST'])
 def init():
+    print("request")
+    print(request)
+    print("request.json")
+    print(request.get_json())
     userInfo = request.get_json()
     return userController.createUser(userInfo)
 
