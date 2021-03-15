@@ -18,29 +18,6 @@ from sprinkle.controllers.UserController import UserController
 from sprinkle.controllers.VoiceCommandController import VoiceCommandController
 
 
-dataset = Dataset(ood=True)
-emb = GensimEmbedder(model=embed.FastText())
-
-clf = DistanceClassifier(
-    model=intent.CNN(dataset.intent_dict),
-    loss=CenterLoss(dataset.intent_dict),
-)
-
-rcn = EntityRecognizer(
-    model=entity.LSTM(dataset.entity_dict),
-    loss=CRFLoss(dataset.entity_dict)
-)
-
-kochat = KochatApi(
-    dataset=dataset,
-    embed_processor=(emb, False),
-    intent_classifier=(clf, False),
-    entity_recognizer=(rcn, False),
-    scenarios=[
-        call, schedule
-    ]
-)
-
 userController = UserController()
 voiceCommandControler = VoiceCommandController()
 
