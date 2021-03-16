@@ -60,11 +60,11 @@ def test():
     return voiceCommandControler.test(command)
 
 @kochat.app.route('/command/and_cmd', methods=['POST'])
-def test():
+def androidCommand():
     command = request.get_json(force=True)["command"]
     print(command)
     return voiceCommandControler.test(command)
-    
+
 # @kochat.app.route('/getUsers')
 # def getUsers():
 #     return userController.searchUser()
