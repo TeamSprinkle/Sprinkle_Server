@@ -52,14 +52,12 @@ kochat = KochatApi(
 @kochat.app.route('/users/init', methods=['POST'])
 def init():
     userInfo = request.get_json(force=True)
-    print("userInfo")
-    print(userInfo)
-    print(request.is_json)
     return userController.createUser(userInfo)
 
-@kochat.app.route('/command/test', methods=['GET'])
+@kochat.app.route('/command/test', methods=['POST'])
 def test():
-    command = request.args["command"]
+    command = request.get_json(force=True)["command"]
+    print(command)
     return voiceCommandControler.test(command)
 
 # @kochat.app.route('/getUsers')
