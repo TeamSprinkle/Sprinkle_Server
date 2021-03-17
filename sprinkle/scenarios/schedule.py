@@ -8,22 +8,12 @@ import datetime as dt
 
 
 def do_schedule( Date, Subject, Time, Action):
-    print("do_schedule function")
-    print("Data : ")
-    Date = cal_date(Date)
-    print(Date)
 
-    print("Subject : ")
-    print(Subject)
-
-    print("Time : ")
-    print(Time)
-
-    print("Action : ")
-    print(Action)
-
-    print('do_schedule function end' )
-
+    result = dict()
+    result['date'] = cal_date(Date)
+    result['subject'] = Subject
+    result['time'] = Time
+    result['action'] = Action
 
 def cal_date( Date ):
     Date = Date.replace("까지", "")
