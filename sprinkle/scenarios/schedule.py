@@ -15,6 +15,8 @@ def do_schedule( Date, Subject, Time, Action):
     result['time'] = Time
     result['action'] = Action
 
+    return result
+
 def cal_date( Date ):
     Date = Date.replace("까지", "")
     tempList = Date.split("부터")
