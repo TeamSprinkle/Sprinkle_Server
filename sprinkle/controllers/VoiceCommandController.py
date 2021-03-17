@@ -15,7 +15,7 @@ from kochat.proc import DistanceClassifier, GensimEmbedder, EntityRecognizer, So
 
 from konlpy.tag import Okt as Mecab
 
-from sprinkle.scenarios.scenarios import call, schedule
+from sprinkle.scenarios.scenarios import call, schedule, weather, dust, travel, restaurant
 
 dataset = Dataset(ood=True)
 emb = GensimEmbedder(model=embed.FastText())
@@ -36,7 +36,7 @@ kochat = KochatApi(
     intent_classifier=(clf, False),
     entity_recognizer=(rcn, False),
     scenarios=[
-        call, schedule
+        call, schedule, weather, dust, travel, restaurant
     ]
 )
 
