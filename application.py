@@ -13,7 +13,7 @@ from kochat.loss import CRFLoss, CosFace, CenterLoss, COCOLoss, CrossEntropyLoss
 from kochat.model import intent, embed, entity
 from kochat.proc import DistanceClassifier, GensimEmbedder, EntityRecognizer, SoftmaxClassifier
 
-from sprinkle.scenarios.scenarios import call, schedule, dust, weather, travel, restaurant
+from sprinkle.scenarios.scenarios import call, schedule
 from sprinkle.controllers.UserController import UserController
 from sprinkle.controllers.VoiceCommandController import VoiceCommandController
 
@@ -40,7 +40,7 @@ kochat = KochatApi(
     intent_classifier=(clf, False),
     entity_recognizer=(rcn, False),
     scenarios=[
-        call, schedule, weather, dust, travel, restaurant
+        call, schedule
     ]
 )
 
