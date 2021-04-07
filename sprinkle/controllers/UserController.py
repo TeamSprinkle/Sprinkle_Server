@@ -65,16 +65,9 @@ class UserController():
        #phonebooks의 update는 성공했지만 수정된 값이 없다면 그냥 진행
        #수정된 값이 있다면 모델을 다시 train
 
-    def deleteUser(self):
-        print("dd")
 
 
 
 
 
 # blueprint
-# 유저 명령 CRUD
-# 유저 명령 처리 해서 반화하는거
-# 일단 기본 모델을 가지고 수행하는 형태로
-
-# Custom 모델은 다른작업하고 추후에
